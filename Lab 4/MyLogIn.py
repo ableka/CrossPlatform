@@ -1,0 +1,66 @@
+from kivy.app import App
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+
+class SayHello(App):
+    def build(self):
+        self.window = GridLayout()
+        self.window.cols = 1
+        self.window.size_hint = (0.6, 0.7)
+        self.window.pos_hint = {"center_x": 0.5, "center_y":0.5}
+        #add widgets to window
+        #image widget
+        self.image = Image(source="C:/Users/alexa/OneDrive/Зображення/pics/7383aa2bc1961bbaffc0a95837e66c1c.jpg")
+        self.window.add_widget(self.image)
+        #label widget
+        self.greeting = Label(
+                        text="Login here",
+                        font_size=18,
+                        color="#00FFCE"
+                        )
+        self.window.add_widget(self.greeting)
+        #text input widget
+        self.username = TextInput(
+            hint_text = 'Username',
+            multiline=False,
+            padding_y = (20, 20),
+            size_hint = (1, 0.5)
+        )
+        self.window.add_widget(self.username)
+        # text input widget
+        self.password = TextInput(
+            hint_text = 'Password',
+            multiline=False,
+            padding_y=(20, 20),
+            size_hint=(1, 0.5)
+        )
+        self.window.add_widget(self.password)
+        #button widget
+        self.button = Button(
+            text="Confirm",
+            size_hint = (1,0.5),
+            bold = True,
+            background_color = "#00FFCE"
+        )
+        self.button.bind(on_press=self.callback)
+        self.window.add_widget(self.button)
+
+        return self.window
+
+    def callback(self, instance):
+        if self.username.text:
+            if self.username.text == "a_bleka":
+                self.greeting.text = f"Welcome to administrative mode, {self.username.text}"
+            else:
+                self.greeting.text = f"Hello {self.username.text} !"
+        else:
+            self.greeting.text = "Hey, you didn't log in"
+
+
+
+if __name__ == "__main__":
+    SayHello().run()
+

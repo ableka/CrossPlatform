@@ -1,0 +1,124 @@
+WindowManager:
+    LoginScreen:
+        id: log_screen
+        name: "log_screen"
+    AppScreen:
+        id: main_screen
+        name: "main_screen"
+    RegistrationScreen:
+        id: reg_screen
+        name: "reg_screen"
+
+<AppScreen>:
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.7
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        Label:
+            text: root.name
+        GridLayout:
+            cols: 1
+            Button:
+                text: "Random recipe"
+                on_press: root.random_button_click()
+            Label:
+                text: root.recipe_text
+                text_size: self.size
+                halign: "left"
+                valign: "middle"
+                font_size: "20dp"
+                color: 1, .5, 1, 1
+
+<LoginScreen>:
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.7
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        Image:
+            source: "C:/Users/alexa/OneDrive/Зображення/pics/7383aa2bc1961bbaffc0a95837e66c1c.jpg"
+        Label:
+            text: "LogIn Here"
+            font_size: 32
+        TextInput:
+            font_size: 16
+            hint_text: "Username"
+            multiline: False
+            padding_y: 20,20
+            size_hint: 1, .5
+        TextInput:
+            password: True
+            font_size: 16
+            hint_text: "Password"
+            multiline: False
+            padding_y: 20,20
+            size_hint: 1, .5
+        Button:
+            text: "LogIn"
+            font_size: 16
+            size_hint: 1, .5
+            bold: True
+            background_color: "#00FFCE"
+            on_release:
+                app.root.current = "main_screen"
+                root.manager.transition.direction = 'up'
+        Button:
+            size_hint: 1, .5
+            text: "You're not registered yet?"
+            on_release:
+                app.root.current = "reg_screen"
+                root.manager.transition.direction = 'left'
+            bold: True
+
+<RegistrationScreen>:
+    username: username
+    password: password
+    rep_password: rep_password
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.7
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        Label:
+            id: reg_label
+            text: root.reg_label
+            font_size: 32
+        TextInput:
+            id: username
+            font_size: 16
+            hint_text: "Username"
+            multiline: False
+            padding_y: 20,20
+            size_hint: 1, .5
+        TextInput:
+            id: password
+            password: True
+            font_size: 16
+            hint_text: "Password"
+            multiline: False
+            padding_y: 20,20
+            size_hint: 1, .5
+        TextInput:
+            id: rep_password
+            password: True
+            font_size: 16
+            hint_text: "Password"
+            multiline: False
+            padding_y: 20,20
+            size_hint: 1, .5
+        Button:
+            text: "Register"
+            font_size: 16
+            size_hint: 1, .5
+            bold: True
+            background_color: "#00FFCE"
+            on_press:
+                root.on_press_reg()
+        Button:
+            size_hint: 1, .5
+            text: "Already registered"
+            on_release:
+                root.on_release_reg()
+                app.root.current = "log_screen"
+                root.manager.transition.direction = 'right'
+            bold: True
+
+
