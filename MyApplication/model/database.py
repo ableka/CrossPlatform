@@ -30,10 +30,15 @@ class DataBase:
         cursor.execute(sql)
         self.connection.commit()
 
-    def log_in(self):
+    def log_in(self, name):
+        user_pass = ""
         cursor = self.connection.cursor()
-        sql = """SELECT * FROM USERS WHERE Username = ?"""
-        cursor.execute(sql, ("name"))
-        for i in cursor:
-            print(i)
+        sql = """SELECT Password FROM USERS WHERE Username=? """
+        cursor.execute(sql, (name,))
+        passes = cursor.fetchone()
+        if passes:
+            user_pass = passes[0]
+        else:
+            print("There's no such user")
         self.connection.commit()
+        return user_pass

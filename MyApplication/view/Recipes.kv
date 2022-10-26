@@ -30,6 +30,8 @@ WindowManager:
                 color: 1, .5, 1, 1
 
 <LoginScreen>:
+    username: username
+    password: password
     GridLayout:
         cols: 1
         size_hint: 0.6, 0.7
@@ -37,31 +39,46 @@ WindowManager:
         Image:
             source: "C:/Users/alexa/OneDrive/Зображення/pics/7383aa2bc1961bbaffc0a95837e66c1c.jpg"
         Label:
-            text: "LogIn Here"
+            id: log_label
+            text: root.log_label
             font_size: 32
         TextInput:
+            id: username
             font_size: 16
             hint_text: "Username"
             multiline: False
-            padding_y: 20,20
+            padding_y: 15,15
             size_hint: 1, .5
         TextInput:
+            id: password
             password: True
             font_size: 16
             hint_text: "Password"
             multiline: False
-            padding_y: 20,20
+            padding_y: 15,15
             size_hint: 1, .5
         Button:
-            text: "LogIn"
+            id: button_confirm
+            text: "Confirm"
             font_size: 16
             size_hint: 1, .5
             bold: True
             background_color: "#00FFCE"
             on_release:
+                root.on_release_log()
+        Button:
+            id: button_login
+            text: "LogIn"
+            font_size: 16
+            size_hint: 1, .5
+            bold: True
+            background_color: "#00FFCE"
+            disabled: True
+            on_release:
                 app.root.current = "main_screen"
                 root.manager.transition.direction = 'up'
         Button:
+            font_size: 16
             size_hint: 1, .5
             text: "You're not registered yet?"
             on_release:

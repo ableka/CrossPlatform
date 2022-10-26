@@ -16,8 +16,6 @@ class RegistrationScreen(Screen):
         username = self.username.text
         password = self.password.text
         rep_password = self.rep_password.text
-        max_timer = 5
-        start_time = time.time()
         if username != '' and password != '' and rep_password != '':
             if password == rep_password:
                 self.database.new_user(username, password)
