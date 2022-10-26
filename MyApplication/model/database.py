@@ -41,3 +41,14 @@ class DataBase:
             print("There's no such user")
         self.connection.commit()
         return user_pass
+
+    def get_all_users(self):
+        cursor = self.connection.cursor()
+        sql = "SELECT * FROM USERS"
+        cursor.execute(sql)
+        users = []
+        passes = []
+        for i in cursor:
+            users.append(i[1])
+            passes.append((i[2]))
+        return users

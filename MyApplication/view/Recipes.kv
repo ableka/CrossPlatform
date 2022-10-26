@@ -8,6 +8,9 @@ WindowManager:
     RegistrationScreen:
         id: reg_screen
         name: "reg_screen"
+    AdminScreen:
+        id: admin_screen
+        name: "admin_screen"
 
 <AppScreen>:
     GridLayout:
@@ -139,5 +142,33 @@ WindowManager:
                 app.root.current = "log_screen"
                 root.manager.transition.direction = 'right'
             bold: True
+
+<AdminScreen>:
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.7
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        Image:
+            source: "C:/Users/alexa/OneDrive/Зображення/download.jfif"
+        Label:
+            text: "Your admin page"
+            font_size: 32
+        GridLayout:
+            cols: 2
+            Button:
+                text: "User List"
+                font_size: 16
+                size_hint: 1, .5
+                bold: True
+                background_color: "#00FFCE"
+                on_press:
+                    root.on_press_user_list()
+            Button:
+                size_hint: 1, .5
+                text: "To app screen"
+                on_release:
+                    app.root.current = "main_screen"
+                    root.manager.transition.direction = 'right'
+                bold: True
 
 

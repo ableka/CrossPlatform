@@ -17,9 +17,12 @@ class LoginScreen(Screen):
         print(username, password, realpass)
         if realpass:
             if password == realpass:
-                self.log_label = "Successfully loged in"
-                print("Successfully loged in")
-                self.ids.button_login.disabled = False
+                if username == "admin":
+                    self.manager.current = "admin_screen"
+                else:
+                    self.log_label = "Successfully logged in"
+                    print("Successfully logged in")
+                    self.manager.current = "main_screen"
             else:
                 self.log_label = "Password is wrong"
                 print("Password is wrong")
