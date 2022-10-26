@@ -21,10 +21,19 @@ class DataBase:
         cursor.execute(sql)
         self.connection.commit()
         self.delete_nulls()
+        self.log_in()
 
     def delete_nulls(self):
         print("I'm here")
         cursor = self.connection.cursor()
         sql = """ DELETE FROM USERS WHERE Password = '' or Username = '' """
         cursor.execute(sql)
+        self.connection.commit()
+
+    def log_in(self):
+        cursor = self.connection.cursor()
+        sql = """SELECT * FROM USERS WHERE Username = ?"""
+        cursor.execute(sql, ("name"))
+        for i in cursor:
+            print(i)
         self.connection.commit()
