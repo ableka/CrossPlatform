@@ -21,7 +21,6 @@ class DataBase:
         cursor.execute(sql)
         self.connection.commit()
         self.delete_nulls()
-        self.log_in()
 
     def delete_nulls(self):
         print("I'm here")

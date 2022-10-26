@@ -20,7 +20,8 @@ class RegistrationScreen(Screen):
             if password == rep_password:
                 self.database.new_user(username, password)
                 self.database.delete_duplicates()
-                self.reg_label = "You've succesfully registered"
+                self.reg_label = "You've successfully registered"
+                self.manager.current = "log_screen"
             else:
                 self.reg_label = "Password doesn't match"
                 print("Password doesn't match")
