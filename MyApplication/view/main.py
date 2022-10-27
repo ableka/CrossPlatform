@@ -5,6 +5,7 @@ from MyApplication.view.LoginScreen import LoginScreen
 from MyApplication.view.WindowManager import WindowManager
 from MyApplication.view.AppScreen import AppScreen
 from MyApplication.view.AdminScreen import AdminScreen
+from MyApplication.view.UserListScreen import UserListScreen
 
 
 

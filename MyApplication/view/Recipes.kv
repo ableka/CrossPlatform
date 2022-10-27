@@ -11,6 +11,9 @@ WindowManager:
     AdminScreen:
         id: admin_screen
         name: "admin_screen"
+    UserListScreen:
+        id: user_list_screen
+        name: 'user_list_screen'
 
 <AppScreen>:
     GridLayout:
@@ -145,6 +148,7 @@ WindowManager:
 
 <AdminScreen>:
     GridLayout:
+        id: grid
         cols: 1
         size_hint: 0.6, 0.7
         pos_hint: {"center_x": 0.5, "center_y":0.5}
@@ -170,5 +174,43 @@ WindowManager:
                     app.root.current = "main_screen"
                     root.manager.transition.direction = 'right'
                 bold: True
+
+
+<UserListScreen>
+    GridLayout:
+        cols: 1
+        size_hint: 0.6, 0.5
+        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        Image:
+            source: "C:/Users/alexa/OneDrive/Зображення/download.jfif"
+        Label:
+            text: "List of app users"
+            font_size: 32
+        GridLayout:
+            cols: 2
+            Label:
+                text: "User List"
+                font_size: 16
+                size_hint: 1, .5
+                bold: True
+                background_color: "#00FFCE"
+            Label:
+                size_hint: 1, .5
+                text: "User pass"
+                bold: True
+            Label:
+                text: root.users
+                font_size: 16
+                text_size: self.width, None
+                size_hint_y: None
+                height: self.texture_size[1]
+            Label:
+                text: root.passes
+                font_size: 16
+                text_size: self.width, None
+                size_hint_y: None
+                height: self.texture_size[1]
+
+
 
 
