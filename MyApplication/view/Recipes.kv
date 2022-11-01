@@ -130,7 +130,6 @@ WindowManager:
             size_hint: 1, .5
             text: "Already registered"
             on_release:
-                root.on_release_reg()
                 app.root.current = "log_screen"
                 root.manager.transition.direction = 'right'
             bold: True
@@ -176,25 +175,16 @@ WindowManager:
             text: "List of app users"
             font_size: 32
         GridLayout:
-            cols: 2
+            cols: 1
             Label:
                 text: "User List"
                 font_size: 16
                 size_hint: 1, .5
                 bold: True
                 background_color: "#00FFCE"
-            Label:
-                size_hint: 1, .5
-                text: "User pass"
-                bold: True
+
             Label:
                 text: root.users
-                font_size: 16
-                text_size: self.width, None
-                size_hint_y: None
-                height: self.texture_size[1]
-            Label:
-                text: root.passes
                 font_size: 16
                 text_size: self.width, None
                 size_hint_y: None

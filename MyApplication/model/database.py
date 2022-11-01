@@ -47,12 +47,9 @@ class DataBase:
         sql = "SELECT * FROM USERS"
         cursor.execute(sql)
         users = []
-        passes = []
         for user in cursor:
             print(user[1])
             users.append(user[1])
-            passes.append(user[2])
         print(users)
         users_text = "\n".join(users)
-        passes_text = "\n".join(passes)
-        return users_text, passes_text
+        return users_text

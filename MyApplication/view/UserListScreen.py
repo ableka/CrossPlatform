@@ -5,4 +5,4 @@ from MyApplication.model.database import DataBase
 
 
 class UserListScreen(Screen):
-    users, passes = DataBase().get_all_users()
+    users = DataBase().get_all_users()

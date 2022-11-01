@@ -2,6 +2,7 @@ from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.screenmanager import Screen
 
 from MyApplication.model.database import DataBase
+from MyApplication.modelview.LoginFunctional import LoginFunctional
 
 
 class LoginScreen(Screen):
@@ -15,16 +16,6 @@ class LoginScreen(Screen):
         password = self.password.text
         realpass = self.database.log_in(username)
         print(username, password, realpass)
-        if realpass:
-            if password == realpass:
-                if username == "admin":
-                    self.manager.current = "admin_screen"
-                else:
-                    self.log_label = "Successfully logged in"
-                    print("Successfully logged in")
-                    self.manager.current = "main_screen"
-            else:
-                self.log_label = "Password is wrong"
-                print("Password is wrong")
-        else:
-            self.log_label = "There's no such user in the system"
+        login = LoginFunctional()
+        login.login_func(username, password, realpass, self.manager)
+
