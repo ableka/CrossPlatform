@@ -5,7 +5,7 @@ import random
 class Dataset:
 
     def __init__(self):
-        self.dataset_name = 'RAW_recipes.csv'
+        self.dataset_name = 'recipe.csv'
         self.dataset = pd.read_csv(self.dataset_name)
 
     def get_recipe_data(self, id):

@@ -19,12 +19,17 @@ WindowManager:
     GridLayout:
         cols: 1
         size_hint: 0.6, 0.7
-        pos_hint: {"center_x": 0.5, "center_y":0.5}
+        pos_hint: {"center_x": 0.5, "center_y":0.7}
         Label:
-            text: root.name
+            font_size: 32
+            text: root.appname
         GridLayout:
             cols: 1
             Button:
+                font_size: 16
+                size_hint: 1, .5
+                bold: True
+                background_color: "#89CFF0"
                 text: "Random recipe"
                 on_press: root.random_button_click()
             Label:

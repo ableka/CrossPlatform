@@ -6,8 +6,8 @@ from MyApplication.model.recipe import Recipe
 
 
 class AppScreen(Screen):
-    name = StringProperty("Recipe App")
-    recipe_text = StringProperty("There's no recipe")
+    appname = StringProperty("Recipes")
+    recipe_text = StringProperty("")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
